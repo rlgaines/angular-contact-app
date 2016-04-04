@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="contactApp">
+  <head>
+    <meta charset="utf-8">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body ng-controller="contacts">
+    <div class="container">
+      <h1>Contacts App</h1>
+      <hr>
+      <head></head>
+     <form novalidate class="simple-form" ng-submit="update(client)">
+      <div class="row">
+        <div class="col-md-3">
+         <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon2">Name</span>
+          <input type="text" class="form-control" placeholder="Name" ng-model="client.name" aria-describedby="sizing-addon2">
+         </div>
+        </div>
+         <div class="col-md-3">
+         <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon2">Email</span>
+          <input type="text" class="form-control" placeholder="Email" ng-model="client.email" aria-describedby="sizing-addon2">
+         </div>
+        </div>
+         <div class="col-md-3">
+          <div class="input-group">
+           <span class="input-group-addon" id="sizing-addon2">Phone</span>
+            <input type="text" class="form-control" placeholder="Phone" ng-model="client.number" aria-describedby="sizing-addon2">
+          </div>
+         </div>
+         <div class="col-md-3">
+            <button type="submit" class="btn btn-success">Submit</button>
+         </div>
+      </div>
+     </form> 
+    </div>
+    <br>
+    <div class="container">
+     <div class="row">
+        <div class="col-md-4">
+          <div class="input-group">
+           <span class="input-group-addon" id="sizing-addon2">Search</span>
+            <input type="text" class="form-control" placeholder="Search" aria-describedby="sizing-addon2" ng-model="search">
+          </div>
+         </div>
+       </div>  
+       <hr> 
+    </div>
+    <div class="container">
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="client in clients | filter:search">
+        <td>{{client.name}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.number}}</td>        
+      </tr>
+    </tbody>
+  </table>  
+      </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
